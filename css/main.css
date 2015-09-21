@@ -110,10 +110,11 @@ aside {
 
 .beer li {
     list-style: none;
+
 }
 
 .beer__img {
-    width: 45%;
+    width: 25%;
     margin: 0 5% 1em 0;
     float: left;
 }
@@ -137,6 +138,7 @@ aside {
     color: #2f9d2f;
     font-size: 1em;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    cursor: pointer;
 }
 
 .cart__btn:hover {
@@ -228,6 +230,7 @@ aside h2 {
     padding-left: 1em;
     font-size: .5em;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    cursor: pointer;
 }
 
 .delete__btn:hover:after {

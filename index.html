@@ -35,12 +35,11 @@
                     <h2 class="main__title">Search Beers</h2>
                     <form class="main__form" role="form">
 
-                        <input ng-model="query" type="text" class="form__input" placeholder="Search">
+                        <input ng-model="query.name" type="text" class="form__input" placeholder="Search">
 
                     </form>
 
                 </div>
-
 
                 <h2 class="main__title" ng-show="booze.length && filtered.length">Beer List</h2>
                 <h2 class="main__title" ng-show="booze.length && !filtered.length">No Matches</h2>
@@ -66,9 +65,19 @@
 
                     <ul>
                         <li ng-repeat="item in cart track by $index">
-                                {{item.name}}  {{item.price | currency}}
+                                {{item.name}}  {{item.price | currency}} <a ng-click="deleteCartItem(item)" class="delete__btn">remove</a>
                         </li>
                     </ul>
+
+                    <h5>Calculate shipping</h5>
+                    <form ng-submit="calculateShipping(zip)" class="main__form" role="form">
+
+                        <input type="number" ng-model="zip" class="form__input" placeholder="Enter zip code">
+                        <button class="form__btn" type="submit">Calculate</button>
+
+                    </form>
+
+                    <h5>Shipping: {{ shippingCost | currency }}</h5>
 
                     <h3>Total: {{ calculateTotal() | currency}}</h3>
 

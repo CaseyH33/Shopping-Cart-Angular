@@ -1,5 +1,5 @@
-# _Student Roster_
-## _List of students with edit functionality, 9/20/2015_
+# _shop_
+## _List of students with edit functionality, 9/21/2015_
 ### By Charles Moss and Casey Heitz
 ## Description
 _._
