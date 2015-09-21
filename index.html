@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html ng-app="shopper">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+    <title>shop</title>
+    <script src="lib/angular.js"></script>
+    <script src="app.js"></script>
+    <script src="js/ShopController.js"></script>
+
+    <meta content="width=device-width" name="viewport">
+    <!-- <link href="favicon.ico" rel="icon"> -->
+    <link href="css/main.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <header>
+
+            <h1 class="site__title">Consume</h1>
+
+        </header>
+
+        <section class="main group" ng-controller="ShopperCtrl">
+
+            <article class="main__article">
+
+                <div ng-show="booze.length">
+
+                    <h2 class="main__title">Search Beers</h2>
+                    <form class="main__form" role="form">
+
+                        <input ng-model="query" type="text" class="form__input" placeholder="Search">
+
+                    </form>
+
+                </div>
+
+
+                <h2 class="main__title" ng-show="booze.length && filtered.length">Beer List</h2>
+                <h2 class="main__title" ng-show="booze.length && !filtered.length">No Matches</h2>
+
+                <ul class="beer">
+                    <li ng-repeat="item in filtered = (booze | orderBy:'name' | filter:query )" class="group">
+                        <img class="beer__img" ng-src="{{item.image}}">
+                        <h3 class="beer__name" >{{item.name}}</h3>
+                        <span class="beer__price">{{item.price}}</span>
+                            <a ng-click="addToCart(item)" class="cart__btn">add to cart</a>
+
+                    </li>
+                </ul>
+
+            </article>
+
+            <aside class="">
+
+
+
+                <div ng-show="cart.length">
+                    <h2>In your cart:</h2>
+
+                    <ul>
+                        <li ng-repeat="item in cart track by $index">
+                                {{item.name}}  {{item.price | currency}}
+                        </li>
+                    </ul>
+
+                    <h3>Total: {{ calculateTotal() | currency}}</h3>
+
+                </div>
+
+            </aside>
+        </section>
+
+    </div>
+    <!-- end of wrapper -->
+
+    <footer class="site__footer">
+        <div class="footer__content">
+
+            <p>Copyright 2015 - fork me on
+                <a href="#">Github</a>
+            </p>
+
+        </div>
+    </footer>
+
+    <!-- <script src="js/jquery.min.js"></script> -->
+    <!-- // <script src="js/main.js"></script>
+        // <script type="text/javascript"></script> -->
+</body>
+
+</html>
